@@ -10,33 +10,6 @@ namespace MyApp
         private static void Main(string[] args)
         {
 
-
-            //Pessoa PrimeiraPessoa = new Pessoa();
-            //Pessoa SegundaPessoa = new Pessoa();
-
-            //Console.WriteLine("Dados Da primeira pessoa:");
-            //Console.Write("Nome:");
-            //PrimeiraPessoa.Nome = Console.ReadLine();
-            //Console.Write("idade:");
-            //PrimeiraPessoa.Idade = int.Parse(Console.ReadLine()) ;
-
-            //Console.WriteLine("Dados Da Segunda pessoa:");
-            //Console.Write("Nome:");
-            //SegundaPessoa.Nome = Console.ReadLine();
-            //Console.Write("idade:");
-            //SegundaPessoa.Idade = int.Parse(Console.ReadLine());
-
-            //if (PrimeiraPessoa.Idade > SegundaPessoa.Idade)
-            //{
-            //    Console.WriteLine($"primeira pessoa maior {PrimeiraPessoa.Nome}");
-            //}
-            //else
-            //    Console.WriteLine($"segunda pessoa maior {SegundaPessoa.Nome}");
-
-
-
-
-
             Triangulo x = new Triangulo();  
             Triangulo y = new Triangulo();
 
