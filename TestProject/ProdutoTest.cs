@@ -13,6 +13,7 @@ namespace TestProject
             Assert.Pass();
         }
         [Test]
+        [Category("Quantidade_Produtos")]
         public void ValorTotalEmEstoque_DeveCalcularCorretamente()
         {         
             var produto = new Produto
@@ -25,6 +26,7 @@ namespace TestProject
             Assert.AreEqual(valorEsperado, valorAtual);
         }
         [Test]
+        [Category("Quantidade_Produtos")]
         public void ValorTotalEmEstoque_ComQuantidadeZero_DeveRetornarZero()
         {
             var produto = new Produto
@@ -37,6 +39,7 @@ namespace TestProject
             Assert.AreEqual(valorEsperado, valorAtual);
         }
         [Test]
+        [Category("Quantidade_Produtos")]
         public void ValorTotalEmEstoque_ComPrecoZero_DeveRetornarZero()
         {
             var produto = new Produto
@@ -49,6 +52,7 @@ namespace TestProject
             Assert.AreEqual(valorEsperado, valorAtual);
         }
         [Test]
+        [Category("Quantidade_Produtos")]
         public void ValorTotalEmEstoque_ComValoresAltos_DeveCalcularCorretamente()
         {
             var produto = new Produto
@@ -61,6 +65,7 @@ namespace TestProject
             Assert.AreEqual(valorEsperado, valorAtual);
         }
         [Test]
+        [Category("Quantidade_Acrecido_Produtos")]
         public void AdicionarProdutos_DeveAumentarAQuantidadeCorretamente()
         {
             var produto = new Produto();
@@ -71,6 +76,7 @@ namespace TestProject
             Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
         }
         [Test]
+        [Category("Quantidade_Acrecido_Produtos")]
         public void AdicionarProdutos_ComValorZero_NaoDeveAlterarAQuantidade()
         {
             var produto = new Produto();
@@ -81,6 +87,7 @@ namespace TestProject
             Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
         }
         [Test]
+        [Category("Quantidade_Acrecido_Produtos")]
         public void AdicionarProdutos_EmProdutoVazio_DeveDefinirAQuantidadeInicial()
         {
             var produto = new Produto();
@@ -90,6 +97,7 @@ namespace TestProject
             Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
         }
         [Test]
+        [Category("Quantidade_Removida_Produtos")]
         public void RemoverProdutos_DeveDiminuirAQuantidadeCorretamente()
         {
             var produto = new Produto();
@@ -100,6 +108,7 @@ namespace TestProject
             Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
         }
         [Test]
+        [Category("Quantidade_Removida_Produtos")]
         public void RemoverProdutos_RemovendoTodoOEstoque_DeveResultarEmZero()
         {
             var produto = new Produto();
