@@ -14,7 +14,7 @@ namespace MyApp
             Console.Write("Nome:");
             p.Nome =Console.ReadLine();
             Console.Write("Preço:");
-            p.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            p.Preco = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Quantidade no estoque:");
             p.Quantidade = int.Parse(Console.ReadLine());
 

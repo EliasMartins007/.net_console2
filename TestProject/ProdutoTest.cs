@@ -17,48 +17,48 @@ namespace TestProject
         {         
             var produto = new Produto
             {
-                Preco = 10.50,
+                Preco = 10.50m,
                 Quantidade = 5
             }; 
-            double valorEsperado = 10.50 * 5; // 52.50
-            double valorAtual = produto.ValorTotalEmEstoque();
-            Assert.AreEqual(valorEsperado, valorAtual, 0.001);
+            decimal valorEsperado = 10.50m * 5; // 52.50
+            decimal valorAtual = produto.ValorTotalEmEstoque();
+            Assert.AreEqual(valorEsperado, valorAtual);
         }
         [Test]
         public void ValorTotalEmEstoque_ComQuantidadeZero_DeveRetornarZero()
         {
             var produto = new Produto
             {
-                Preco = 25.00,
+                Preco = 25.00m,
                 Quantidade = 0
             };
-            double valorEsperado = 0.0;
-            double valorAtual = produto.ValorTotalEmEstoque();
-            Assert.AreEqual(valorEsperado, valorAtual, 0.001);
+            decimal valorEsperado = 0.0m;
+            decimal valorAtual = produto.ValorTotalEmEstoque();
+            Assert.AreEqual(valorEsperado, valorAtual);
         }
         [Test]
         public void ValorTotalEmEstoque_ComPrecoZero_DeveRetornarZero()
         {
             var produto = new Produto
             {
-                Preco = 0.00,
+                Preco = 0.00m,
                 Quantidade = 10
             };
-            double valorEsperado = 0.0;
-            double valorAtual = produto.ValorTotalEmEstoque();
-            Assert.AreEqual(valorEsperado, valorAtual, 0.001);
+            decimal valorEsperado = 0.0m;
+            decimal valorAtual = produto.ValorTotalEmEstoque();
+            Assert.AreEqual(valorEsperado, valorAtual);
         }
         [Test]
         public void ValorTotalEmEstoque_ComValoresAltos_DeveCalcularCorretamente()
         {
             var produto = new Produto
             {
-                Preco = 12345.67,
+                Preco = 12345.67m,
                 Quantidade = 987
             };
-            double valorEsperado = 12345.67 * 987; // 12186851.69
-            double valorAtual = produto.ValorTotalEmEstoque();
-            Assert.AreEqual(valorEsperado, valorAtual, 0.001);
+            decimal valorEsperado = 12345.67m * 987; // 12186851.69
+            decimal valorAtual = produto.ValorTotalEmEstoque();
+            Assert.AreEqual(valorEsperado, valorAtual);
         }
         [Test]
         public void AdicionarProdutos_DeveAumentarAQuantidadeCorretamente()
@@ -87,6 +87,26 @@ namespace TestProject
             int quantidadeASerAdicionada = 8;
             int quantidadeEsperada = 8;
             produto.AdicionarProdutos(quantidadeASerAdicionada);
+            Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
+        }
+        [Test]
+        public void RemoverProdutos_DeveDiminuirAQuantidadeCorretamente()
+        {
+            var produto = new Produto();
+            produto.Quantidade = 50; // Estoque inicial
+            int quantidadeARemover = 15;
+            int quantidadeEsperada = 35; // 50 - 15
+            produto.RemoverProdutos(quantidadeARemover);
+            Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
+        }
+        [Test]
+        public void RemoverProdutos_RemovendoTodoOEstoque_DeveResultarEmZero()
+        {
+            var produto = new Produto();
+            produto.Quantidade = 10;
+            int quantidadeARemover = 10;
+            int quantidadeEsperada = 0;
+            produto.RemoverProdutos(quantidadeARemover);
             Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
         }
     }
