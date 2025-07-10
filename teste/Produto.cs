@@ -4,7 +4,7 @@ namespace teste
     public class Produto
     {
         public string Nome;
-        public decimal Preco;//public double Preco;
+        public decimal Preco;
         public int Quantidade;
         public decimal ValorTotalEmEstoque() 
         {

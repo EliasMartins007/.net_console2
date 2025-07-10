@@ -1,31 +1,31 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using teste;
-
 namespace MyApp
 {
     class Program
     {
-    
         private static void Main(string[] args)
         {
-            Produto p = new Produto();
+            Produto produto = new Produto();
             Console.WriteLine("Entre com os dados do produto:");
             Console.Write("Nome:");
-            p.Nome =Console.ReadLine();
+            produto.Nome =Console.ReadLine();
             Console.Write("Preço:");
-            p.Preco = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            produto.Preco = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Quantidade no estoque:");
-            p.Quantidade = int.Parse(Console.ReadLine());
-
+            produto.Quantidade = int.Parse(Console.ReadLine());
             Console.WriteLine("Dados do produto: ");
-            Console.Write(p);
+            Console.Write(produto);
             Console.WriteLine();
             Console.WriteLine("Digite o numero de produtos a ser adicionado ao estoque");
-            int quantidadeAdicional = int.Parse(Console.ReadLine());
+            int quantidade = int.Parse(Console.ReadLine());
+            produto.AdicionarProdutos(quantidade);
+            Console.WriteLine("Dados atualizados: " + produto);
+            Console.WriteLine("Digite o numero de produtos a ser removida do estoque");
+            quantidade = int.Parse(Console.ReadLine());
+            produto.RemoverProdutos(quantidade);
+            Console.WriteLine("Dados atualizados: " + produto);
         }
-
-
     }          
 }
 

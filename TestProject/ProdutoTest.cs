@@ -56,7 +56,7 @@ namespace TestProject
                 Preco = 12345.67m,
                 Quantidade = 987
             };
-            decimal valorEsperado = 12345.67m * 987; // 12186851.69
+            decimal valorEsperado = 12345.67m * 987; 
             decimal valorAtual = produto.ValorTotalEmEstoque();
             Assert.AreEqual(valorEsperado, valorAtual);
         }
@@ -66,7 +66,7 @@ namespace TestProject
             var produto = new Produto();
             produto.Quantidade = 10; // Quantidade inicial
             int quantidadeASerAdicionada = 5;
-            int quantidadeEsperada = 15; // 10 + 5
+            int quantidadeEsperada = 15; 
             produto.AdicionarProdutos(quantidadeASerAdicionada);
             Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
         }
@@ -95,7 +95,7 @@ namespace TestProject
             var produto = new Produto();
             produto.Quantidade = 50; // Estoque inicial
             int quantidadeARemover = 15;
-            int quantidadeEsperada = 35; // 50 - 15
+            int quantidadeEsperada = 35; 
             produto.RemoverProdutos(quantidadeARemover);
             Assert.AreEqual(quantidadeEsperada, produto.Quantidade);
         }
