@@ -3,9 +3,30 @@ namespace teste
 {
     public class Produto
     {
-        public string Nome;
-        public decimal Preco;
-        public int Quantidade;
+
+        public string Nome { get; set; }
+        public decimal Preco { get; set; }
+        public int Quantidade { get; set; }
+
+
+
+        public Produto() {
+        }
+
+        public Produto(string nome, decimal preco)
+        {
+            Nome = nome;
+            Preco = preco;
+            Quantidade = 0;
+        }
+        public Produto(string nome, decimal preco, int quantidade)
+        {
+            Nome = nome;
+            Preco = preco;
+            Quantidade = quantidade;
+        }
+
+
         public decimal ValorTotalEmEstoque() 
         {
             return Preco *Quantidade;   
