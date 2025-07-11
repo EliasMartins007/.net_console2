@@ -114,5 +114,42 @@ namespace TestProject
             _produto.RemoverProdutos(quantidadeARemover);
             Assert.AreEqual(quantidadeEsperada, _produto.Quantidade);
         }
+
+
+        [Test]
+        [Category("Nome_Produtos")]
+        public void Nome_DeveDefinirOValorCorretamente()
+        {
+            var produto = new Produto();
+            string nomeEsperado = "Caneta Azul";
+            produto.Nome = nomeEsperado;
+            Assert.AreEqual(nomeEsperado, produto.Nome);
+        }
+        [Test]
+        [Category("Nome_Produtos")]
+        public void Nome_ComValorNulo_DeveLancarArgumentException()
+        {
+            var produto = new Produto();
+            string nomeInvalido = null;
+            Assert.Throws<ArgumentException>(() => produto.Nome = nomeInvalido);
+        }
+
+        [Test]
+        [Category("Nome_Produtos")]
+        public void Nome_ComValorVazio_DeveLancarArgumentException()
+        {
+            var produto = new Produto();
+            string nomeInvalido = "";
+            Assert.Throws<ArgumentException>(() => produto.Nome = nomeInvalido);
+        }
+
+        [Test]
+        [Category("Nome_Produtos")]
+        public void Nome_ComApenasEspacosEmBranco_DeveLancarArgumentException()
+        {
+            var produto = new Produto();
+            string nomeInvalido = "   ";
+            Assert.Throws<ArgumentException>(() => produto.Nome = nomeInvalido);
+        }
     }
 }

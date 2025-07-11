@@ -4,7 +4,7 @@ namespace teste
     public class Produto
     {
 
-        public string Nome { get; set; }
+        private string _nome;
         public decimal Preco { get; set; }
         public int Quantidade { get; set; }
 
@@ -15,16 +15,32 @@ namespace teste
 
         public Produto(string nome, decimal preco)
         {
-            Nome = nome;
+            _nome = nome;
             Preco = preco;
             Quantidade = 0;
         }
         public Produto(string nome, decimal preco, int quantidade)
         {
-            Nome = nome;
+            _nome = nome;
             Preco = preco;
             Quantidade = quantidade;
         }
+
+
+        public string Nome
+        {
+            get { return _nome; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("O nome do produto não pode ser vazio ou nulo.", nameof(value));
+                }
+                _nome = value;
+            }
+        }
+
+
 
 
         public decimal ValorTotalEmEstoque() 
@@ -54,7 +70,7 @@ namespace teste
 
         public override string ToString()
         {
-            return Nome
+            return _nome
                 + ", R$ "
                 + Preco.ToString("F2", CultureInfo.InvariantCulture)
                 + ", "
