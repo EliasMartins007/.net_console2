@@ -1,35 +1,20 @@
 ﻿using System.Globalization;
 using teste;
+using teste.Entities;
 namespace MyApp
 {
     class Program
     {
         private static void Main(string[] args)
         {
+           Account acc1 = new Account(1001, "Alex", 500.0m);
+           Account acc2 = new SavingsAccount(1002, "Maria", 500.0m, 0.01);
 
-
-            Console.WriteLine("Entre com os dados do produto:");
-            Console.Write("Nome:");
-            string nome = Console.ReadLine();
-            Console.Write("Preço:");
-            decimal preco = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            Console.Write("Quantidade no estoque:");
-            int quantidade = int.Parse(Console.ReadLine());
-            Console.WriteLine("Dados do produto: ");
-            //Console.Write(produto);
-            //Console.WriteLine();
-            //Console.WriteLine("Digite o numero de produtos a ser adicionado ao estoque");
-            //int quantidade = int.Parse(Console.ReadLine());
-            //produto.AdicionarProdutos(quantidade);
-            //Console.WriteLine("Dados atualizados: " + produto);
-            //Console.WriteLine("Digite o numero de produtos a ser removida do estoque");
-            //quantidade = int.Parse(Console.ReadLine());
-            //produto.RemoverProdutos(quantidade);
-            //Console.WriteLine("Dados atualizados: " + produto);
-
-
-            Produto produto = new Produto(nome, preco, quantidade);
-            Console.Write(produto);
+           acc1.Withdraw(10.0m);
+           acc2.Withdraw(10.0m);
+           
+           Console.WriteLine(acc1.Balance);
+           Console.WriteLine(acc2.Balance);
         }
     }          
 }

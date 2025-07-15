@@ -4,7 +4,7 @@ namespace TestProject
     public class ProdutoTest
     {
 
-        Produto _produto = new Produto();
+        Produto _produto;
 
         [SetUp]
         public void Setup()
